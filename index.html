@@ -67,6 +67,15 @@
       color: #666;
       padding: 20px;
     }
+    footer {
+      background-color: #f8f9fa;
+      padding: 15px;
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid #ddd;
+    }
+    footer a { text-decoration: none; color: #007bff; }
+    footer a:hover { text-decoration: underline; }
     /* Desktop-specific styles */
     @media (min-width: 577px) {
       .news-item {
@@ -104,6 +113,9 @@
     <div id="loading" class="loading">در حال بارگذاری...</div>
     <div id="news-list" style="display: none;"></div>
   </div>
+  <footer>
+    <p>© تمامی حقوق محفوظ است. <a href="/about-us">درباره ما</a></p>
+  </footer>
   <script>
     const API_BASE_URL = "https://api.8log.ir";
 
@@ -131,7 +143,7 @@
             <img src="${news.photo || 'images/default.jpg'}" alt="${news.title_fa || 'بدون عنوان'}">
             <div>
               <h6>${news.title_fa || 'بدون عنوان'}</h6>
-              <p>${news.summary || 'بدون خلاصه'}</p>
+              <p>${news.summary || 'بدون خلاصه'} ${news.published_date || ''}</p>
             </div>
             <a href="catalan_news?id=${news.id}&title=${encodeURIComponent(news.slug_url)}" class="btn btn-primary">ادامه خبر</a>
           </div>
