@@ -111,11 +111,19 @@
     <p>© تمامی حقوق محفوظ است. <a href="/about-us">درباره ما</a> | <a href="/">خانه</a></p>
   </footer>
   <script>
+    // const API_BASE_URL = "https://300b-188-26-211-61.ngrok-free.app";
     const API_BASE_URL = "https://api.8log.ir";
 
     const fetchNewsDetail = async (id, slug) => {
       try {
         const response = await fetch(`${API_BASE_URL}/catalan_news/${id}`);
+
+        // const response = await fetch(`${API_BASE_URL}/catalan_news/${id}`, {
+        //     headers: {
+        //         "ngrok-skip-browser-warning": "true"
+        //     }
+        // });
+
         if (!response.ok) throw new Error("Failed to fetch news detail");
 
         const news = await response.json();

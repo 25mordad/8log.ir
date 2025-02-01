@@ -117,6 +117,7 @@
     <p>© تمامی حقوق محفوظ است. <a href="/about-us">درباره ما</a></p>
   </footer>
   <script>
+    // const API_BASE_URL = "https://300b-188-26-211-61.ngrok-free.app";
     const API_BASE_URL = "https://api.8log.ir";
 
     const fetchNewsList = async () => {
@@ -129,6 +130,12 @@
         newsList.style.display = "none";
 
         const response = await fetch(`${API_BASE_URL}/`);
+        // const response = await fetch(`${API_BASE_URL}/`, {
+        //     headers: {
+        //         "ngrok-skip-browser-warning": "true"
+        //     }
+        // });
+
         if (!response.ok) throw new Error("Failed to fetch news list");
 
         const newsItems = await response.json();
